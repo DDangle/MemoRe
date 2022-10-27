@@ -33,8 +33,14 @@ class MemoCell : UITableViewCell {
         self.memo = memo
         self.mymemoTitle.text = memo.title
         
+        //DateFormaatter 객체 생성
+        let formatter = DateFormatter()
+//        formatter.dateStyle = .long
+//        formatter.timeStyle = .medium
+        formatter.dateFormat = "yyyy년 mm월 dd일"
         
-        
+        let str = formatter.string(from: Date())
+        mymemoRegDate.text = "\(str)"
         
     }
     @IBAction func deleteBtnClicked(_ sender: Any) {

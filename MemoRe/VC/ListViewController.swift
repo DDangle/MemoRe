@@ -16,7 +16,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.setData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,20 +57,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         //memoCell 의 값
         cell.setData(memo: memo)
         
+        //날짜 포매터
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 mm월 dd일"
+        cell.mymemoRegDate?.text = formatter.string(from: memo.regDate!)
+        
         return cell
         
-        
-//        func getCurrentDateTime() {
-//            //DateFormaatter 객체 생성
-//            let formatter = DateFormatter()
-//            formatter.dateStyle = .long
-//            formatter.timeStyle = .medium
-//            formatter.dateFormat = "yyyy년 mm월 dd일"
-//
-//            let str = formatter.string(from: Date())
-//            mymemoRegDate.text = "\(str)"
-//
-//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
