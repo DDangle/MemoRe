@@ -18,6 +18,7 @@ class DetailViewController : UIViewController {
         self.titleLable.text = memo?.title
         self.contentsLable.text = memo?.contents
         
+        
     }
     
     
@@ -28,6 +29,12 @@ class DetailViewController : UIViewController {
         
     }
     
+    
+    
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     

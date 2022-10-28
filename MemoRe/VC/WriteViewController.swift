@@ -89,6 +89,13 @@ class WriteViewController : UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
+    
+   
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     //텍스트뷰에 글입력시 호출
     func textViewDidChange(_ textView: UITextView) {
         //글내용을 최대 15자리까지 읽어 subject 변수에 저장

@@ -9,6 +9,7 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     var memoList = [MemoData]()
@@ -19,6 +20,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.setData()
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,14 +34,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
+    
+    @IBAction func addButton(_ sender: UIButton) {
         let writeVC =
         self.storyboard?.instantiateViewController(withIdentifier: "WriteVC") as? WriteViewController
         
         writeVC?.delegate = self
         self.navigationController?.pushViewController(writeVC!, animated: true)
     }
-    
     // MARK : 테이블 뷰
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = self.memoList.count
